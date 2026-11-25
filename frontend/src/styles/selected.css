@@ -1,0 +1,8 @@
+/* Admin Selected Photos pages (Step 2E) */
+.sel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 14px; margin-top: 24px; }
+.sel-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--dark-2); }
+.sel-card img { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; cursor: zoom-in; transition: opacity 0.2s; }
+.sel-card img:hover { opacity: 0.85; }
+.sel-foot { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 10px 12px; font-size: 0.82rem; }
+.sel-foot a { color: var(--gold); }
+.filter-row { margin-bottom: 20px; max-width: 260px; }

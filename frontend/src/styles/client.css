@@ -1,0 +1,60 @@
+/* Client gallery: light theme (Step 2D) */
+.client { min-height: 100vh; background: var(--bg); color: var(--ink); padding-bottom: 110px; }
+.client-header { text-align: center; padding: 56px 20px 36px; }
+.client-logo { font-family: var(--font-serif); font-size: 1.5rem; letter-spacing: 0.3em; text-transform: uppercase; }
+.client-header h1 { font-size: clamp(2.8rem, 8vw, 5.2rem); line-height: 1; margin: 32px 0 14px; }
+.client-sub { color: var(--muted); font-size: 0.92rem; }
+
+.client-banner { max-width: 640px; margin: 0 auto 24px; padding: 14px 18px; border-radius: 12px; text-align: center; font-size: 0.9rem; }
+.client-banner.success { background: #dff3e6; color: #1f5c36; display: grid; gap: 2px; }
+.client-banner.warn { background: #fdeccd; color: #7a4a05; }
+
+.client-message { min-height: 60vh; display: grid; place-content: center; text-align: center; gap: 10px; padding: 24px; color: var(--muted); }
+.client-message h1 { color: var(--ink); font-size: 2.6rem; }
+
+.masonry { columns: 2; column-gap: 10px; padding: 0 10px; }
+@media (min-width: 700px) { .masonry { columns: 3; column-gap: 14px; padding: 0 28px; } }
+@media (min-width: 1100px) { .masonry { columns: 4; } }
+.photo { position: relative; margin: 0 0 10px; break-inside: avoid; overflow: hidden; border-radius: 4px; background: #e8e4dc; }
+@media (min-width: 700px) { .photo { margin-bottom: 14px; } }
+.photo img { display: block; width: 100%; cursor: zoom-in; transition: transform 0.5s; }
+.photo:hover img { transform: scale(1.03); }
+.photo.selected { outline: 3px solid var(--ink); outline-offset: -3px; }
+.pick {
+  position: absolute; top: 8px; right: 8px; width: 44px; height: 44px; border-radius: 50%;
+  border: 0; font-size: 1.2rem; cursor: pointer; background: rgba(255, 255, 255, 0.85); color: var(--ink);
+  backdrop-filter: blur(6px); transition: background 0.2s;
+}
+.photo.selected .pick { background: var(--ink); color: #fff; }
+.pick:disabled { cursor: default; }
+
+.client-bar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20; display: flex; justify-content: space-between;
+  align-items: center; gap: 16px; padding: 12px 20px; background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px); border-top: 1px solid #e3ded4;
+}
+.count { font-family: var(--font-serif); font-size: 2rem; line-height: 1; }
+.count span { font-family: var(--font-sans); font-size: 0.85rem; color: var(--muted); }
+.submit-btn { background: var(--ink); color: #fff; border: 0; border-radius: 999px; padding: 13px 26px; cursor: pointer; font-size: 0.92rem; }
+.submit-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.ghost { background: transparent; border: 1px solid #cfc9bd; border-radius: 999px; padding: 13px 22px; cursor: pointer; }
+
+.modal-back { position: fixed; inset: 0; z-index: 40; display: grid; place-items: center; background: rgba(0, 0, 0, 0.5); padding: 20px; }
+.modal { background: #fff; border-radius: 20px; padding: 32px; max-width: 400px; text-align: center; }
+.modal h2 { font-size: 2rem; }
+.modal p { color: var(--muted); font-size: 0.92rem; margin: 10px 0 24px; }
+.modal-actions { display: flex; gap: 10px; }
+.modal-actions button { flex: 1; }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 50; display: flex; flex-direction: column; background: rgba(8, 8, 8, 0.96); color: #fff; }
+.lightbox-top { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; font-size: 0.9rem; }
+.lightbox-tools { display: flex; gap: 10px; align-items: center; }
+.lightbox-tools button { background: transparent; border: 1px solid rgba(255, 255, 255, 0.35); color: #fff; border-radius: 999px; padding: 8px 16px; cursor: pointer; }
+.lightbox-tools button.on { background: #fff; color: #000; }
+.lightbox-stage { flex: 1; overflow: auto; display: flex; }
+.lightbox-stage img { margin: auto; max-width: 100%; max-height: calc(100vh - 70px); object-fit: contain; cursor: zoom-in; }
+.lightbox-stage img.zoomed { max-width: none; max-height: none; width: 200%; cursor: zoom-out; }
+.lb-nav { position: fixed; top: 50%; width: 48px; height: 48px; border-radius: 50%; border: 0; background: rgba(255, 255, 255, 0.14); color: #fff; font-size: 1.8rem; cursor: pointer; }
+.lb-nav.prev { left: 10px; }
+.lb-nav.next { right: 10px; }

@@ -1,0 +1,36 @@
+/* Styles for the Upload Photos page (Step 2C) */
+.dropzone {
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 56px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+.dropzone:hover, .dropzone.dragging { border-color: var(--gold); background: rgba(201, 169, 110, 0.06); }
+.dropzone.disabled { opacity: 0.45; cursor: not-allowed; }
+.dropzone h2 { font-size: 2rem; }
+.dropzone p { color: rgba(242, 239, 233, 0.55); font-size: 0.9rem; margin-top: 6px; }
+
+.upload-bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin: 28px 0 16px; }
+.upload-bar span { color: rgba(242, 239, 233, 0.6); font-size: 0.9rem; }
+
+.message { padding: 12px 16px; border-radius: 10px; font-size: 0.9rem; margin-top: 20px; }
+.message.success { background: rgba(52, 211, 153, 0.12); color: #34d399; }
+.message.error { background: rgba(255, 138, 128, 0.12); color: #ff8a80; }
+
+.queue { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+.queue-card { position: relative; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--dark-2); }
+.queue-card img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+.queue-info { padding: 10px 12px; font-size: 0.8rem; }
+.queue-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.queue-meta { color: rgba(242, 239, 233, 0.5); }
+.queue-meta.err { color: #ff8a80; }
+.queue-meta.ok { color: #34d399; }
+.progress { height: 4px; border-radius: 4px; background: rgba(255, 255, 255, 0.1); margin-top: 8px; }
+.progress div { height: 100%; border-radius: 4px; background: var(--gold); transition: width 0.2s; }
+.remove-btn {
+  position: absolute; top: 8px; right: 8px; width: 30px; height: 30px; border-radius: 50%;
+  border: 0; background: rgba(0, 0, 0, 0.7); color: #fff; cursor: pointer;
+}
+.remove-btn:disabled { opacity: 0.4; cursor: not-allowed; }
